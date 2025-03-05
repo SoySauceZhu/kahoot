@@ -1,6 +1,6 @@
-package mingjie.kahoot.quizeservice.dao;
+package mingjie.kahoot.quizservice.dao;
 
-import mingjie.kahoot.quizeservice.entity.Quiz;
+import mingjie.kahoot.quizservice.entity.Quiz;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;

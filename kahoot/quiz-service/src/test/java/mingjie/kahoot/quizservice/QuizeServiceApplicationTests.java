@@ -1,4 +1,4 @@
-package mingjie.kahoot.quizeservice;
+package mingjie.kahoot.quizservice;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

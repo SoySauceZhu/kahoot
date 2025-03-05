@@ -1,4 +1,4 @@
-package mingjie.kahoot.quizeservice.entity;
+package mingjie.kahoot.quizservice.entity;
 
 
 import lombok.AllArgsConstructor;

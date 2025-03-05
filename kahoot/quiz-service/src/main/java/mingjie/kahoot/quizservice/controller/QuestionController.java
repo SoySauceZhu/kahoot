@@ -1,7 +1,7 @@
-package mingjie.kahoot.quizeservice.controller;
+package mingjie.kahoot.quizservice.controller;
 
-import mingjie.kahoot.quizeservice.entity.Question;
-import mingjie.kahoot.quizeservice.service.QuestionService;
+import mingjie.kahoot.quizservice.entity.Question;
+import mingjie.kahoot.quizservice.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

@@ -1,7 +1,7 @@
-package mingjie.kahoot.quizeservice.service;
+package mingjie.kahoot.quizservice.service;
 
-import mingjie.kahoot.quizeservice.dao.QuestionMapper;
-import mingjie.kahoot.quizeservice.entity.Question;
+import mingjie.kahoot.quizservice.dao.QuestionMapper;
+import mingjie.kahoot.quizservice.entity.Question;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
