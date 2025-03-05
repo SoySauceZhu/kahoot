@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: quiz-service
+  datasource:
+    url: jdbc:mysql://localhost:3306/user_service_db
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 123456
+
+
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+  instance:
+    prefer-ip-address: true
+    instance-id: quiz-service
+
+server:
+  port: 8082
