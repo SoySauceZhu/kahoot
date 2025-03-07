@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mingjie.kahoot.quizservice.dao.QuestionMapper">
+
+    <resultMap id="QuestionResultMap" type="mingjie.kahoot.quizservice.entity.Question">
+        <id property="id" column="id"/>
+        <result property="quizId" column="quiz_id"/>
+        <result property="questionText" column="question_text"/>
+        <result property="createdAt" column="created_at"/>
+        <result property="updatedAt" column="updated_at"/>
+    </resultMap>
+
+    <select id="findById" resultMap="QuestionResultMap">
+        SELECT id, quiz_id, question_text, created_at, updated_at
+        FROM questions
+        WHERE id = #{id}
+    </select>
+
+    <select id="findByQuizId" resultMap="QuestionResultMap">
+        SELECT id, quiz_id, question_text, created_at, updated_at
+        FROM questions
+        WHERE quiz_id = #{quizId}
+    </select>
+
+    <insert id="insertQuestion" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO questions (quiz_id, question_text, created_at, updated_at)
+        VALUES (#{quizId}, #{questionText}, NOW(), NOW())
+    </insert>
+
+    <update id="updateQuestion">
+        UPDATE questions
+        SET question_text = #{questionText}, updated_at = NOW()
+        WHERE id = #{id}
+    </update>
+
+    <delete id="deleteQuestion">
+        DELETE FROM questions WHERE id = #{id}
+    </delete>
+
+    <delete id="deleteByQuizId">
+        DELETE FROM questions WHERE quiz_id = #{quizId}
+    </delete>
+
+</mapper>

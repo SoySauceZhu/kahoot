@@ -2,7 +2,7 @@ spring:
   application:
     name: quiz-service
   datasource:
-    url: jdbc:mysql://localhost:3306/user_service_db
+    url: jdbc:mysql://localhost:3306/quiz_service_db
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     password: 123456
@@ -11,6 +11,7 @@ spring:
 mybatis:
   configuration:
     map-underscore-to-camel-case: true
+  mapper-locations: classpath:mapper/*.xml
 
 eureka:
   client:
@@ -19,6 +20,3 @@ eureka:
   instance:
     prefer-ip-address: true
     instance-id: quiz-service
-
-server:
-  port: 8082
