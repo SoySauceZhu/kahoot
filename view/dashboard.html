@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kahoot Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #4CAF50;
+            color: white;
+        }
+        .header button {
+            background-color: white;
+            color: #4CAF50;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .header button:hover {
+            background-color: #45a049;
+            color: white;
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        .card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .card h3 {
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div>
+            <button onclick="createNewGame()">Create New Game</button>
+            <button onclick="joinGame()">Join Game</button>
+        </div>
+    </div>
+    <div class="grid-container">
+        <!-- Example cards, replace with dynamic content -->
+        <div class="card">
+            <h3>Quiz Game 1</h3>
+            <p>Description of Quiz Game 1</p>
+        </div>
+        <div class="card">
+            <h3>Quiz Game 2</h3>
+            <p>Description of Quiz Game 2</p>
+        </div>
+        <div class="card">
+            <h3>Quiz Game 3</h3>
+            <p>Description of Quiz Game 3</p>
+        </div>
+        <!-- Add more cards as needed -->
+    </div>
+
+    <script>
+        function createNewGame() {
+            window.location.href = 'create_game.html'; // Replace with the actual path to your create game page
+        }
+
+        function joinGame() {
+            // Add logic to join a game
+            alert('Join Game button clicked');
+        }
+    </script>
+</body>
+</html>
