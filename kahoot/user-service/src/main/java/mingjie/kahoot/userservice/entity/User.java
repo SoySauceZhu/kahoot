@@ -1,12 +1,15 @@
 package mingjie.kahoot.userservice.entity;
 
-import lombok.Data;
+
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import java.time.LocalDateTime;
+import java.util.Collection;
+import java.util.List;
 
-/**
- */
-public class User {
+public class User implements UserDetails {
 
     private Long id;
     private String username;
@@ -15,6 +18,7 @@ public class User {
     private String role;            // STUDENT / TEACHER / ADMIN / etc.
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
+    private boolean enabled;
 
     public User() {
     }
@@ -31,6 +35,15 @@ public class User {
         this.updatedAt = updatedAt;
     }
 
+    public boolean isEnabled() {
+//        return enabled;
+        return true;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
+
     public Long getId() {
         return id;
     }
@@ -43,8 +56,28 @@ public class User {
         return username;
     }
 
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return UserDetails.super.isCredentialsNonExpired();
+    }
+
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return List.of(new SimpleGrantedAuthority(role));
     }
 
     public String getPassword() {

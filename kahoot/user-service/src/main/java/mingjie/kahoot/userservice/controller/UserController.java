@@ -1,4 +1,5 @@
 package mingjie.kahoot.userservice.controller;
+
 import mingjie.kahoot.userservice.entity.User;
 import mingjie.kahoot.userservice.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,6 +36,9 @@ public class UserController {
 
     @PostMapping
     public ResponseEntity<User> createUser(@RequestBody User newUser) {
+        if (!newUser.isEnabled()) {
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
+        }
         if (userService.getUserByUsername(newUser.getUsername()) != null) {
             return ResponseEntity.status(HttpStatus.CONFLICT).build();
         }
