@@ -1,6 +1,7 @@
 package mingjie.kahoot.gameservice.mapper;
 
 import mingjie.kahoot.gameservice.model.Game;
+import mingjie.kahoot.gameservice.model.GameVO;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;
@@ -30,4 +31,5 @@ public interface GameMapper {
 
     @Select("SELECT * FROM games WHERE creator_id = #{userId} AND status = #{status}")
     List<Game> findAllByUserIdAndStatus(@Param("userId") Long userId, @Param("status") String status);
+
 }

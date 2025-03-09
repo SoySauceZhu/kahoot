@@ -1,9 +1,10 @@
 package mingjie.kahoot.gameservice.service;
 
+import com.github.pagehelper.PageInfo;
 import mingjie.kahoot.gameservice.dto.GameCreateRequest;
 import mingjie.kahoot.gameservice.dto.GameDTO;
 import mingjie.kahoot.gameservice.dto.GameUpdateRequest;
-import mingjie.kahoot.gameservice.model.PageResult;
+import mingjie.kahoot.gameservice.model.GameVO;
 
 import java.util.List;
 
@@ -18,7 +19,7 @@ public interface GameService {
 
     void endGame(Long gameId, Long userId);
 
-    PageResult<GameDTO> listGames(Long userId, String status, int page, int size);
+    PageInfo<GameVO> listGames(Long userId, String status, int page, int size);
 
     List<GameDTO> listAllGames();
 

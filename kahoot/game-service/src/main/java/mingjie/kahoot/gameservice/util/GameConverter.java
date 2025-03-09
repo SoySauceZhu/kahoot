@@ -2,6 +2,7 @@ package mingjie.kahoot.gameservice.util;
 
 import mingjie.kahoot.gameservice.dto.GameDTO;
 import mingjie.kahoot.gameservice.model.Game;
+import mingjie.kahoot.gameservice.model.GameVO;
 
 public class GameConverter {
     public static GameDTO convertToDTO(Game game) {
@@ -13,4 +14,13 @@ public class GameConverter {
         dto.setCreatedAt(game.getCreatedAt());
         return dto;
     }
+
+    public static GameVO convertToVO(Game game) {
+            GameVO vo = new GameVO();
+            vo.setTitle(game.getTitle());
+            vo.setGameCode(game.getGameCode());
+            vo.setStatus(game.getStatus());
+            vo.setCreatedAt(game.getCreatedAt());
+            return vo;
+        }
 }

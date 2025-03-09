@@ -1,14 +1,13 @@
 package mingjie.kahoot.gameservice.service.impl;
 
-import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import mingjie.kahoot.gameservice.dto.*;
 import mingjie.kahoot.gameservice.mapper.GameMapper;
 import mingjie.kahoot.gameservice.mapper.OptionMapper;
 import mingjie.kahoot.gameservice.mapper.QuestionMapper;
 import mingjie.kahoot.gameservice.model.Game;
+import mingjie.kahoot.gameservice.model.GameVO;
 import mingjie.kahoot.gameservice.model.Option;
-import mingjie.kahoot.gameservice.model.PageResult;
 import mingjie.kahoot.gameservice.model.Question;
 import mingjie.kahoot.gameservice.service.GameService;
 import mingjie.kahoot.gameservice.util.GameConverter;
@@ -39,11 +38,7 @@ public class GameServiceImpl implements GameService {
         this.optionMapper = optionMapper;
     }
 
-
-    @Transactional
-    @Override
-    public GameDTO createGame(GameCreateRequest gameCreateRequest, Long creatorId) {
-
+    public Game createByCreateRequest(GameCreateRequest gameCreateRequest, Long creatorId) {
         String gameCode = generateUniqueGameCode();
 
         Game game = new Game();
@@ -56,6 +51,16 @@ public class GameServiceImpl implements GameService {
         game.setCreatedAt(now());
         game.setUpdatedAt(now());
         gameMapper.insert(game);
+
+        return game;
+    }
+
+
+    @Transactional
+    @Override
+    public GameDTO createGame(GameCreateRequest gameCreateRequest, Long creatorId) {
+
+        Game game = createByCreateRequest(gameCreateRequest, creatorId);
 
         for (QuestionCreateRequest questionCreateRequest : gameCreateRequest.getQuestions()) {
 
@@ -158,21 +163,9 @@ public class GameServiceImpl implements GameService {
     }
 
     @Override
-    public PageResult<GameDTO> listGames(Long userId, String status, int page, int size) {
-        PageHelper.startPage(page, size);
-        List<Game> games = gameMapper.findAllByUserIdAndStatus(userId, status);
-        PageInfo<Game> pageInfo = new PageInfo<>(games);
-
-        List<GameDTO> dtos = games.stream()
-                .map(GameConverter::convertToDTO)
-                .collect(Collectors.toList());
-
-        return new PageResult<>(
-                dtos,
-                pageInfo.getTotal(),
-                pageInfo.getPageNum(),
-                pageInfo.getPageSize()
-        );
+    public PageInfo<GameVO> listGames(Long userId, String status, int page, int size) {
+        // TODO
+        return null;
     }
 
     @Override

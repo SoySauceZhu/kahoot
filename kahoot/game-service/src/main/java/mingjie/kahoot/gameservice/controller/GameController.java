@@ -1,9 +1,9 @@
 package mingjie.kahoot.gameservice.controller;
 
+import com.github.pagehelper.PageInfo;
 import mingjie.kahoot.gameservice.dto.GameCreateRequest;
 import mingjie.kahoot.gameservice.dto.GameDTO;
 import mingjie.kahoot.gameservice.dto.GameUpdateRequest;
-import mingjie.kahoot.gameservice.model.PageResult;
 import mingjie.kahoot.gameservice.service.GameService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -59,8 +59,10 @@ public class GameController {
     }
 
     @GetMapping
-    public ResponseEntity<PageResult<GameDTO>> listGames(@RequestParam Long userId, @RequestParam String status, @RequestParam int page, @RequestParam int size) {
-        PageResult<GameDTO> games = gameService.listGames(userId, status, page, size);
+    public ResponseEntity<PageInfo<GameDTO>> listGames(@RequestParam Long userId, @RequestParam String status,
+                                                       @RequestParam(defaultValue = "1") int page,
+                                                       @RequestParam(defaultValue = "6") int size) {
+        PageInfo<GameDTO> games = gameService.listGames(userId, status, page, size);
         return ResponseEntity.ok(games);
     }
 
