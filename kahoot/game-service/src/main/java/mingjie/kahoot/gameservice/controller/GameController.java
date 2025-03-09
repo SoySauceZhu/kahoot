@@ -4,6 +4,8 @@ import com.github.pagehelper.PageInfo;
 import mingjie.kahoot.gameservice.dto.GameCreateRequest;
 import mingjie.kahoot.gameservice.dto.GameDTO;
 import mingjie.kahoot.gameservice.dto.GameUpdateRequest;
+import mingjie.kahoot.gameservice.model.Game;
+import mingjie.kahoot.gameservice.model.GameVO;
 import mingjie.kahoot.gameservice.service.GameService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -28,8 +30,8 @@ public class GameController {
     }
 
     @PostMapping
-    public ResponseEntity<GameDTO> createGame(@RequestBody GameCreateRequest request, @RequestParam Long creatorId) {
-        GameDTO gameDTO = gameService.createGame(request, creatorId);
+    public ResponseEntity<Game> createGame(@RequestBody GameCreateRequest request, @RequestParam Long creatorId) {
+        Game gameDTO = gameService.createGame(request, creatorId);
 
         return ResponseEntity.ok(gameDTO);
     }
@@ -59,10 +61,10 @@ public class GameController {
     }
 
     @GetMapping
-    public ResponseEntity<PageInfo<GameDTO>> listGames(@RequestParam Long userId, @RequestParam String status,
-                                                       @RequestParam(defaultValue = "1") int page,
-                                                       @RequestParam(defaultValue = "6") int size) {
-        PageInfo<GameDTO> games = gameService.listGames(userId, status, page, size);
+    public ResponseEntity<PageInfo<GameVO>> listGames(@RequestParam Long userId, @RequestParam String status,
+                                                      @RequestParam(defaultValue = "1") int page,
+                                                      @RequestParam(defaultValue = "6") int size) {
+        PageInfo<GameVO> games = gameService.listGames(userId, status, page, size);
         return ResponseEntity.ok(games);
     }
 

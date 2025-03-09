@@ -58,7 +58,7 @@ public class GameServiceImpl implements GameService {
 
     @Transactional
     @Override
-    public GameDTO createGame(GameCreateRequest gameCreateRequest, Long creatorId) {
+    public Game createGame(GameCreateRequest gameCreateRequest, Long creatorId) {
 
         Game game = createByCreateRequest(gameCreateRequest, creatorId);
 
@@ -89,7 +89,7 @@ public class GameServiceImpl implements GameService {
             }
         }
 
-        return GameConverter.convertToDTO(game);
+        return game;
     }
 
     private String generateUniqueGameCode() {
