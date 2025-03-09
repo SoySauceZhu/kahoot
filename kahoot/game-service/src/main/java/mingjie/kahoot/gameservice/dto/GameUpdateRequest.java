@@ -3,8 +3,6 @@ package mingjie.kahoot.gameservice.dto;
 public class GameUpdateRequest {
     private String title;
     private String description;
-    private String status;
-    private Boolean isDeleted;
 
 
     public String getTitle() {
@@ -13,13 +11,5 @@ public class GameUpdateRequest {
 
     public String getDescription() {
         return description;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public Boolean getDeleted() {
-        return isDeleted;
     }
 }

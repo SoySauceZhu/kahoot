@@ -81,6 +81,11 @@ public class QuestionServiceImpl implements QuestionService {
     }
 
     @Override
+    public Question getQuestionWithAnswer(Long questionId, Long userId) {
+        return questionMapper.findById(questionId);
+    }
+
+    @Override
     public Question getQuestion(Long questionId) {
         Question question = questionMapper.findById(questionId);
         question.setCorrectAnswer(null);

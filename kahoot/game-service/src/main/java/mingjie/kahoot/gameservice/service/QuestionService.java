@@ -15,6 +15,8 @@ public interface QuestionService {
     void deleteQuestion(Long questionId, Long userId);
 
 
+    Question getQuestionWithAnswer(Long questionId, Long userId);
+
     // For User
     Question getQuestion(Long questionId);
 

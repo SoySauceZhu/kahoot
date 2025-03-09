@@ -99,12 +99,6 @@ public class GameServiceImpl implements GameService {
         if (gameUpdateRequest.getDescription() != null) {
             game.setDescription(gameUpdateRequest.getDescription());
         }
-        if (gameUpdateRequest.getStatus() != null) {
-            game.setStatus(gameUpdateRequest.getStatus());
-        }
-        if (gameUpdateRequest.getDeleted() != null) {
-            game.setDeleted(gameUpdateRequest.getDeleted());
-        }
 
         gameMapper.update(game);
     }
@@ -121,6 +115,8 @@ public class GameServiceImpl implements GameService {
             throw new IllegalArgumentException("User is not authorized to publish this game");
         }
 
+
+        // Soft Delete
         game.setDeleted(true);
         gameMapper.update(game);
     }

@@ -37,6 +37,15 @@ public class QuestionController {
         return ResponseEntity.noContent().build();
     }
 
+    @GetMapping("/{questionId}/answer")
+    public ResponseEntity<Question> getQuestionWithAnswer(@PathVariable Long questionId, @RequestParam Long userId) {
+        Question question = questionService.getQuestionWithAnswer(questionId, userId);
+        return ResponseEntity.ok(question);
+    }
+
+
+    // User
+
     @GetMapping("/{questionId}")
     public ResponseEntity<Question> getQuestion(@PathVariable Long questionId) {
         Question question = questionService.getQuestion(questionId);

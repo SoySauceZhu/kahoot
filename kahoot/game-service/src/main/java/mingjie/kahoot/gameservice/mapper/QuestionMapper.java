@@ -13,7 +13,6 @@ package mingjie.kahoot.gameservice.mapper;
             @Result(property = "id", column = "id"),
             @Result(property = "gameId", column = "game_id"),
             @Result(property = "content", column = "content"),
-            @Result(property = "type", column = "type"),
             @Result(property = "timeLimit", column = "time_limit"),
             @Result(property = "correctAnswer", column = "correct_answer", typeHandler = mingjie.kahoot.gameservice.typehandler.LongArrayTypeHandler.class),
             @Result(property = "createdAt", column = "created_at"),
@@ -26,7 +25,6 @@ package mingjie.kahoot.gameservice.mapper;
             @Result(property = "id", column = "id"),
             @Result(property = "gameId", column = "game_id"),
             @Result(property = "content", column = "content"),
-            @Result(property = "type", column = "type"),
             @Result(property = "timeLimit", column = "time_limit"),
             @Result(property = "correctAnswer", column = "correct_answer", typeHandler = mingjie.kahoot.gameservice.typehandler.LongArrayTypeHandler.class),
             @Result(property = "createdAt", column = "created_at"),
@@ -39,7 +37,6 @@ package mingjie.kahoot.gameservice.mapper;
             @Result(property = "id", column = "id"),
             @Result(property = "gameId", column = "game_id"),
             @Result(property = "content", column = "content"),
-            @Result(property = "type", column = "type"),
             @Result(property = "timeLimit", column = "time_limit"),
             @Result(property = "correctAnswer", column = "correct_answer", typeHandler = mingjie.kahoot.gameservice.typehandler.LongArrayTypeHandler.class),
             @Result(property = "createdAt", column = "created_at"),
@@ -52,7 +49,7 @@ package mingjie.kahoot.gameservice.mapper;
         @Options(useGeneratedKeys = true, keyProperty = "id")
         void insert(Question question);
 
-        @Update("UPDATE questions SET game_id = #{gameId}, content = #{content}, type = #{type}, time_limit = #{timeLimit}, " +
+        @Update("UPDATE questions SET game_id = #{gameId}, content = #{content},  time_limit = #{timeLimit}, " +
                 "correct_answer = #{correctAnswer, typeHandler=mingjie.kahoot.gameservice.typehandler.LongArrayTypeHandler}, created_at = #{createdAt}, updated_at = #{updatedAt} WHERE id = #{id}")
         void update(Question question);
 
