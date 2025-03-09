@@ -168,4 +168,9 @@ public class GameServiceImpl implements GameService {
     public List<Game> listAllGames(Long userId) {
         return gameMapper.findAllById(userId);
     }
+
+    @Override
+    public Game getGame(Long gameId) {
+        return gameMapper.findById(gameId);
+    }
 }

@@ -66,9 +66,9 @@ public class GameController {
         return ResponseEntity.ok(games);
     }
 
-    @GetMapping("/all")
-    public ResponseEntity<List<Game>> getGames(@RequestParam Long id) {
-        List<Game> games = gameService.listAllGames(id);
+    @GetMapping("/{gameId}")
+    public ResponseEntity<List<Game>> getGames(@PathVariable Long gameId) {
+        List<Game> games = gameService.listAllGames(gameId);
         return ResponseEntity.ok(games);
     }
 

@@ -1,15 +1,18 @@
 package mingjie.kahoot.gameservice.service;
 
+import com.github.pagehelper.PageInfo;
 import mingjie.kahoot.gameservice.dto.OptionCreateRequest;
 import mingjie.kahoot.gameservice.model.Option;
 
 public interface OptionService {
 
-    void createOption(OptionCreateRequest request, Long questionId);
+    Option createOption(OptionCreateRequest request, Long questionId);
 
     Option getOption(Long optionId);
 
-    void updateOption(Long optionId, OptionCreateRequest request);
+    PageInfo<Option> getOptionByQuestionId(Long questionId);
 
-    void deleteOption(Long optionId);
+    void updateOption(Long optionId, OptionCreateRequest request, Long userId);
+
+    void deleteOption(Long optionId, Long userId);
 }

@@ -8,6 +8,8 @@ import mingjie.kahoot.gameservice.model.Game;
 import java.util.List;
 
 public interface GameService {
+    // Service for creator
+
     Game createGame(GameCreateRequest request, Long creatorId);
 
     void updateGame(Long id, GameUpdateRequest gameUpdateRequest, Long userId);
@@ -20,7 +22,9 @@ public interface GameService {
 
     PageInfo<Game> getGamePages(Long userId, String status, int page, int size);
 
-    List<Game> listAllGames(Long id);
+    List<Game> listAllGames(Long userId);
 
-//    GameDetailVO getGameDetail(Long gameId, Long userId);
+    // Service for user
+
+    Game getGame(Long gameId);
 }
