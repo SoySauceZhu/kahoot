@@ -6,6 +6,7 @@ public class GameUpdateRequest {
     private String status;
     private Boolean isDeleted;
 
+
     public String getTitle() {
         return title;
     }

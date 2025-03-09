@@ -2,6 +2,7 @@ package mingjie.kahoot.gameservice.dto;
 
 import java.time.LocalDateTime;
 
+@Deprecated
 public class GameDTO {
     private Long id;
     private String title;

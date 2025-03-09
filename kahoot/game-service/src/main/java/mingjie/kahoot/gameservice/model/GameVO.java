@@ -3,6 +3,7 @@ package mingjie.kahoot.gameservice.model;
 import java.time.LocalDateTime;
 import java.util.List;
 
+@Deprecated
 public class GameVO {
     private String title;
     private String description;

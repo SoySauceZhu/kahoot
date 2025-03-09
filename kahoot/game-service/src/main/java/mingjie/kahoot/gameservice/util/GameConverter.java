@@ -5,6 +5,7 @@ import mingjie.kahoot.gameservice.model.Game;
 import mingjie.kahoot.gameservice.model.GameVO;
 
 public class GameConverter {
+    @Deprecated
     public static GameDTO convertToDTO(Game game) {
         GameDTO dto = new GameDTO();
         dto.setId(game.getId());

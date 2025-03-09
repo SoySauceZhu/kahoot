@@ -27,4 +27,5 @@ public interface OptionMapper {
 
     @Delete("DELETE FROM question_options WHERE id = #{id}")
     void delete(Long id);
+
 }

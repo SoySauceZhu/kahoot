@@ -1,6 +1,7 @@
 // OptionVO.java
 package mingjie.kahoot.gameservice.model;
 
+@Deprecated
 public class OptionVO {
     private String content;
     private int order;
